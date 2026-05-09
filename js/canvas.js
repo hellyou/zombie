@@ -102,7 +102,7 @@ function drawZombie(zombie) {
     ctx.fillStyle = '#333';
     ctx.fillRect(barX, barY - 6, barWidth, 3);
     ctx.fillStyle = '#2196F3';
-    ctx.fillRect(barX, barY - 6, barWidth * (zombie.shieldHp / 200), 3);
+    ctx.fillRect(barX, barY - 6, barWidth * (zombie.shieldHp / ZOMBIE_STATS.screendoor.shieldHp), 3);
   }
 }
 
