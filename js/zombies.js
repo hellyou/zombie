@@ -57,7 +57,7 @@ function updateZombies(dt) {
           z.jumped = true;
           z.eating = false;
           z.targetPlant = null;
-          z.x -= 15; // move past the plant
+          z.x -= CELL_SIZE + 5; // jump past the plant to the next cell
           continue;
         }
         plant.hp -= z.damage;
