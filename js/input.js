@@ -19,6 +19,7 @@ canvas.addEventListener('click', (e) => {
 
 // Keyboard shortcuts for plant selection (defender)
 document.addEventListener('keydown', (e) => {
+  // Defender: plant selection 1-7
   if (e.key >= '1' && e.key <= '7') {
     const idx = parseInt(e.key) - 1;
     if (idx < PLANT_ORDER.length) {
@@ -29,5 +30,32 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     Game.selectedPlant = null;
     updatePanelSelection();
+  }
+
+  // Attacker (zombie) keyboard controls — used when no gamepad is available
+  // Arrow keys + Enter for zombie control
+  if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+    e.preventDefault();
+    if (e.key === 'ArrowUp') {
+      Game.selectedRow = Math.max(0, Game.selectedRow - 1);
+    } else {
+      Game.selectedRow = Math.min(GRID_ROWS - 1, Game.selectedRow + 1);
+    }
+  }
+  if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+    e.preventDefault();
+    const idx = ZOMBIE_ORDER.indexOf(Game.selectedZombie);
+    if (e.key === 'ArrowLeft') {
+      Game.selectedZombie = ZOMBIE_ORDER[(idx - 1 + ZOMBIE_ORDER.length) % ZOMBIE_ORDER.length];
+    } else {
+      Game.selectedZombie = ZOMBIE_ORDER[(idx + 1) % ZOMBIE_ORDER.length];
+    }
+    updatePanelSelection();
+  }
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    if (Game.selectedZombie && Game.state === 'playing') {
+      Game.spawnZombie(Game.selectedZombie, Game.selectedRow);
+    }
   }
 });
