@@ -33,6 +33,9 @@ const Game = {
     this.gameTime = 0;
     this.defenderSun = INITIAL_SUN_DEFENDER;
     this.attackerSun = INITIAL_SUN_ATTACKER;
+    this.selectedPlant = null;
+    this.selectedZombie = null;
+    this.selectedRow = 2;
     this.state = 'menu';
   },
 
