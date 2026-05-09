@@ -1,0 +1,40 @@
+<h2>📊 属性数值设计</h2>
+
+<h3>🌱 植物属性</h3>
+<div style="background: #1a1a2e; border-radius: 8px; padding: 12px; margin-bottom: 16px;">
+  <table style="width: 100%; color: #ccc; font-size: 13px; border-collapse: collapse;">
+    <tr><th style="text-align: left; border-bottom: 1px solid #333;">植物</th><th style="border-bottom: 1px solid #333;">血量</th><th style="border-bottom: 1px solid #333;">攻击力</th><th style="border-bottom: 1px solid #333;">攻速</th><th style="border-bottom: 1px solid #333;">特殊</th></tr>
+    <tr><td>🌻 向日葵</td><td>100</td><td>-</td><td>-</td><td>每 8s 产 25 阳光</td></tr>
+    <tr><td>🌱 豌豆射手</td><td>100</td><td>20</td><td>1.5s</td><td>-</td></tr>
+    <tr><td>🥜 坚果墙</td><td>1000</td><td>-</td><td>-</td><td>高血量肉盾</td></tr>
+    <tr><td>❄️ 寒冰射手</td><td>100</td><td>20</td><td>1.5s</td><td>减速 50% 持续 3s</td></tr>
+    <tr><td>💣 土豆雷</td><td>100</td><td>500</td><td>-</td><td>需要 15s 准备，触发后爆炸</td></tr>
+    <tr><td>🍒 樱桃炸弹</td><td>-</td><td>800</td><td>-</td><td>3×3 范围，一次性</td></tr>
+    <tr><td>🔫 双发射手</td><td>100</td><td>20×2</td><td>1.5s</td><td>一次射两发豌豆</td></tr>
+  </table>
+</div>
+
+<h3>🧟 僵尸属性</h3>
+<div style="background: #1a1a2e; border-radius: 8px; padding: 12px; margin-bottom: 16px;">
+  <table style="width: 100%; color: #ccc; font-size: 13px; border-collapse: collapse;">
+    <tr><th style="text-align: left; border-bottom: 1px solid #333;">僵尸</th><th style="border-bottom: 1px solid #333;">血量</th><th style="border-bottom: 1px solid #333;">攻击力</th><th style="border-bottom: 1px solid #333;">速度</th><th style="border-bottom: 1px solid #333;">特殊</th></tr>
+    <tr><td>🧟 普通僵尸</td><td>100</td><td>40</td><td>普通</td><td>-</td></tr>
+    <tr><td>🪖 路障僵尸</td><td>200</td><td>40</td><td>普通</td><td>额外血量</td></tr>
+    <tr><td>⛑️ 铁桶僵尸</td><td>550</td><td>40</td><td>普通</td><td>高血量坦克</td></tr>
+    <tr><td>🏃 撑杆跳僵尸</td><td>150</td><td>40</td><td>快</td><td>跳过第一个植物</td></tr>
+    <tr><td>📰 读报僵尸</td><td>150</td><td>40</td><td>普通→快</td><td>报纸被打掉后狂暴加速</td></tr>
+    <tr><td>🏈 橄榄球僵尸</td><td>400</td><td>40</td><td>快</td><td>高速高血量</td></tr>
+    <tr><td>🛡️ 栅栏僵尸</td><td>300</td><td>40</td><td>普通</td><td>栅栏抵挡豌豆（前 200 伤害）</td></tr>
+  </table>
+</div>
+
+<h3>⚔️ 攻击规则</h3>
+<div style="background: #1a1a2e; border-radius: 8px; padding: 12px;">
+  <ul style="color: #ccc; font-size: 13px;">
+    <li>僵尸攻击力 40 = 两下打死豌豆射手（100HP/40=2.5下→3下）</li>
+    <li>植物攻击力 20 = 5下打死普通僵尸（100HP/20=5下）</li>
+    <li>僵尸攻速：每 2 秒攻击一次</li>
+    <li>坚果墙（1000HP）能抗 25 下僵尸攻击</li>
+    <li>樱桃炸弹 800 伤害 = 秒杀铁桶僵尸（550HP）</li>
+  </ul>
+</div>

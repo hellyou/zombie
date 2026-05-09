@@ -1,0 +1,57 @@
+<h2>🏗️ 整体架构</h2>
+
+<div class="section">
+  <h3>画面布局</h3>
+  <div style="display: grid; grid-template-columns: 200px 1fr 200px; gap: 8px; min-height: 200px;">
+    <div style="background: #2d4a2d; border-radius: 8px; padding: 16px; text-align: center; display: flex; flex-direction: column; justify-content: center;">
+      <div style="font-size: 24px; margin-bottom: 8px;">🌱</div>
+      <div style="color: #8bc34a; font-weight: bold;">植物面板</div>
+      <div style="color: #aaa; font-size: 12px;">选择植物<br>阳光: ☀️</div>
+    </div>
+    <div style="background: #4a7a3a; border-radius: 8px; padding: 16px; text-align: center; display: flex; flex-direction: column; justify-content: center;">
+      <div style="font-size: 24px;">🎮 战场 (5×9 网格)</div>
+      <div style="color: #ccc; font-size: 12px; margin-top: 8px;">
+        植物 ← | 豌豆 | 坚果 | 空地 | 空地 | 空地 | 空地 | 空地 | → 僵尸
+      </div>
+    </div>
+    <div style="background: #3d2d2d; border-radius: 8px; padding: 16px; text-align: center; display: flex; flex-direction: column; justify-content: center;">
+      <div style="font-size: 24px; margin-bottom: 8px;">🧟</div>
+      <div style="color: #ff6b6b; font-weight: bold;">僵尸面板</div>
+      <div style="color: #aaa; font-size: 12px;">选择僵尸<br>阳光: ☀️</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>技术架构</h3>
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+    <div style="background: #1a1a2e; border-radius: 8px; padding: 12px;">
+      <div style="color: #8bc34a; font-weight: bold;">🎨 前端层 (HTML/CSS)</div>
+      <ul style="color: #ccc; font-size: 13px;">
+        <li>植物/僵尸选择面板</li>
+        <li>阳光计数器</li>
+        <li>倒计时/状态栏</li>
+        <li>开始/结束界面</li>
+      </ul>
+    </div>
+    <div style="background: #1a1a2e; border-radius: 8px; padding: 12px;">
+      <div style="color: #ff6b6b; font-weight: bold;">🎮 游戏引擎 (Canvas)</div>
+      <ul style="color: #ccc; font-size: 13px;">
+        <li>5×9 网格渲染</li>
+        <li>植物/僵尸精灵</li>
+        <li>子弹系统</li>
+        <li>碰撞检测</li>
+      </ul>
+    </div>
+    <div style="background: #1a1a2e; border-radius: 8px; padding: 12px; grid-column: 1/-1;">
+      <div style="color: #ffd700; font-weight: bold;">⚙️ 游戏逻辑 (JS)</div>
+      <ul style="color: #ccc; font-size: 13px;">
+        <li>游戏主循环 (requestAnimationFrame)</li>
+        <li>阳光生成 & 收集</li>
+        <li>植物攻击逻辑</li>
+        <li>僵尸移动 & 攻击逻辑</li>
+        <li>胜负判定</li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>植物大战僵尸 - 双人对战</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Start Screen -->
+    <div id="start-screen" class="screen">
+      <h1>🌱 植物大战僵尸 🧟</h1>
+      <h2>双人对战</h2>
+      <p>防守方: 键鼠 | 进攻方: 手柄</p>
+      <button id="start-btn">开始游戏</button>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="game-screen" class="screen hidden">
+      <div id="game-header">
+        <div id="defender-info" class="player-info">
+          <span class="player-label defender">🌱 防守方</span>
+          <span class="sun-count" id="defender-sun">☀️ 150</span>
+        </div>
+        <div id="timer">⏱️ 3:00</div>
+        <div id="attacker-info" class="player-info">
+          <span class="sun-count" id="attacker-sun">☀️ 100</span>
+          <span class="player-label attacker">🧟 进攻方</span>
+        </div>
+      </div>
+
+      <div id="game-area">
+        <div id="plant-panel" class="side-panel">
+          <!-- Plant buttons inserted by JS -->
+        </div>
+        <canvas id="game-canvas" width="630" height="350"></canvas>
+        <div id="zombie-panel" class="side-panel">
+          <!-- Zombie buttons inserted by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- End Screen -->
+    <div id="end-screen" class="screen hidden">
+      <h1 id="result-title"></h1>
+      <p id="result-detail"></p>
+      <button id="restart-btn">再来一局</button>
+    </div>
+  </div>
+
+  <script src="js/constants.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/canvas.js"></script>
+  <script src="js/sun.js"></script>
+  <script src="js/plants.js"></script>
+  <script src="js/zombies.js"></script>
+  <script src="js/projectiles.js"></script>
+  <script src="js/input.js"></script>
+  <script src="js/gamepad.js"></script>
+  <script src="js/ui.js"></script>
+</body>
+</html>

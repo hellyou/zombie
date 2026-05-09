@@ -1,0 +1,26 @@
+<h2>🏆 胜负条件</h2>
+<p class="subtitle">怎么才算赢？</p>
+
+<div class="options">
+  <div class="option" data-choice="classic" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>经典模式</h3>
+      <p>僵尸走到最左边 = 僵尸赢<br>防守方消灭所有僵尸或坚持 X 分钟 = 防守方赢</p>
+    </div>
+  </div>
+  <div class="option" data-choice="base" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>推基地</h3>
+      <p>双方各有一个基地（左/右）。僵尸攻破左边基地 = 僵尸赢；植物推到右边基地 = 植物赢</p>
+    </div>
+  </div>
+  <div class="option" data-choice="score" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>积分制</h3>
+      <p>限时对局。僵尸每吃掉一个植物得分，植物每消灭一个僵尸得分。时间到比分高者胜</p>
+    </div>
+  </div>
+</div>

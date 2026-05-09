@@ -1,0 +1,32 @@
+<h2>🔨 三种实现方案</h2>
+
+<div class="options">
+  <div class="option" data-choice="hybrid" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>🌟 HTML/CSS + Canvas 混合 (推荐)</h3>
+      <p><strong>战场:</strong> Canvas 渲染 (5×9 网格、植物、僵尸、子弹)<br>
+      <strong>UI 面板:</strong> HTML/CSS (植物/僵尸选择栏、阳光计数、倒计时)<br>
+      <strong>优点:</strong> UI 交互用 HTML 简单高效，游戏渲染用 Canvas 高性能<br>
+      <strong>技术栈:</strong> 原生 JS + Canvas API + CSS Grid/Flexbox</p>
+    </div>
+  </div>
+  <div class="option" data-choice="canvas" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>纯 Canvas 渲染</h3>
+      <p><strong>所有内容:</strong> 全部在 Canvas 上绘制，包括 UI 按钮和面板<br>
+      <strong>优点:</strong> 统一渲染管线，像素级控制<br>
+      <strong>缺点:</strong> 按钮交互、文本渲染需要自己实现，开发量更大</p>
+    </div>
+  </div>
+  <div class="option" data-choice="phaser" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>游戏框架 (Phaser/PixiJS)</h3>
+      <p><strong>使用:</strong> 引入 Phaser 或 PixiJS 游戏引擎<br>
+      <strong>优点:</strong> 内置物理引擎、动画系统、资源管理<br>
+      <strong>缺点:</strong> 引入额外依赖，小游戏用框架反而增加复杂度</p>
+    </div>
+  </div>
+</div>

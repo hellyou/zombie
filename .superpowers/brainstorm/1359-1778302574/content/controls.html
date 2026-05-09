@@ -1,0 +1,69 @@
+<h2>🎮 分屏交互设计</h2>
+
+<div class="section">
+  <h3>操作方式</h3>
+  <p class="subtitle">同屏双人，使用键盘 + 鼠标</p>
+</div>
+
+<h3>方案：键盘分边（推荐）</h3>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+  <div style="background: #2d4a2d; border-radius: 8px; padding: 16px;">
+    <h4 style="color: #8bc34a;">🟢 防守方（植物）</h4>
+    <div style="color: #ccc; font-size: 13px;">
+      <p><strong>鼠标操作</strong>（共用鼠标）</p>
+      <ul>
+        <li>点击左侧植物栏选择植物</li>
+        <li>点击战场格子放置</li>
+        <li>点击阳光收集</li>
+      </ul>
+      <p style="color: #888; font-size: 12px; margin-top: 8px;">防守方使用鼠标，简单直观</p>
+    </div>
+  </div>
+  <div style="background: #3d2d2d; border-radius: 8px; padding: 16px;">
+    <h4 style="color: #ff6b6b;">🔴 进攻方（僵尸）</h4>
+    <div style="color: #ccc; font-size: 13px;">
+      <p><strong>键盘快捷键</strong></p>
+      <ul>
+        <li><kbd>1</kbd>-<kbd>7</kbd> 选择僵尸种类</li>
+        <li><kbd>Q</kbd><kbd>W</kbd><kbd>E</kbd><kbd>R</kbd><kbd>A</kbd> 选择行（5行）</li>
+        <li>选定后在所选行右侧生成僵尸</li>
+        <li>阳光自动收集（或按 <kbd>Space</kbd> 收集）</li>
+      </ul>
+      <p style="color: #888; font-size: 12px; margin-top: 8px;">键盘操作快速派兵，不用鼠标</p>
+    </div>
+  </div>
+</div>
+
+<h3 style="margin-top: 24px;">或者：纯键盘分边</h3>
+<div style="background: #1a1a2e; border-radius: 8px; padding: 16px;">
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; color: #ccc; font-size: 13px;">
+    <div>
+      <h4 style="color: #8bc34a;">🟢 防守方</h4>
+      <ul>
+        <li><kbd>Tab</kbd>/<kbd>Shift+Tab</kbd> 切换植物</li>
+        <li><kbd>↑</kbd><kbd>↓</kbd><kbd>←</kbd><kbd>→</kbd> 移动光标</li>
+        <li><kbd>Enter</kbd> 放置/收集阳光</li>
+      </ul>
+    </div>
+    <div>
+      <h4 style="color: #ff6b6b;">🔴 进攻方</h4>
+      <ul>
+        <li><kbd>1</kbd>-<kbd>7</kbd> 选僵尸</li>
+        <li><kbd>Q</kbd><kbd>W</kbd><kbd>E</kbd><kbd>R</kbd><kbd>A</kbd> 选行</li>
+        <li><kbd>Space</kbd> 部署/收集阳光</li>
+      </ul>
+    </div>
+  </div>
+  <p style="color: #888; font-size: 12px; margin-top: 8px;">纯键盘适合笔记本电脑没有鼠标的情况，但学习成本更高</p>
+</div>
+
+<div class="section" style="margin-top: 24px;">
+  <h3>收集阳光规则</h3>
+  <div style="background: #1a1a2e; border-radius: 8px; padding: 16px; color: #ccc; font-size: 13px;">
+    <p>阳光落在战场中间 → 哪边离得近自动归哪边</p>
+    <p>阳光落在左侧区域 → 自动归防守方</p>
+    <p>阳光落在右侧区域 → 自动归进攻方</p>
+    <p><strong>防守方的向日葵产的阳光</strong> → 只归防守方</p>
+    <p><strong>僵尸消灭植物获得的奖励</strong> → 自动加给进攻方</p>
+  </div>
+</div>

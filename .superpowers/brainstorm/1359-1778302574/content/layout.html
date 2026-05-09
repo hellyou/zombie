@@ -1,0 +1,26 @@
+<h2>🖼️ 分屏布局</h2>
+<p class="subtitle">屏幕怎么分？</p>
+
+<div class="options">
+  <div class="option" data-choice="topbot" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>上下分屏</h3>
+      <p>上面是防守方阵地（种植物），下面是进攻方控制区（选僵尸）。共享同一个游戏画面，各管各的操作面板</p>
+    </div>
+  </div>
+  <div class="option" data-choice="shared" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>共享战场 + 左右操作栏</h3>
+      <p>中间是草坪战场，左边是防守方的植物选择栏，右边是进攻方的僵尸选择栏。双方看同一个战场</p>
+    </div>
+  </div>
+  <div class="option" data-choice="turn" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>回合轮流制（统一画面）</h3>
+      <p>一个画面，每个回合限时 30 秒。蓝方回合种植物，红方回合派僵尸。到时间自动切换</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,72 @@
+<h2>🎮 分屏交互设计 v2</h2>
+
+<h3>🔵 防守方（植物）— 键鼠</h3>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 8px;">
+  <div style="background: #2d4a2d; border-radius: 8px; padding: 16px; color: #ccc; font-size: 13px;">
+    <h4 style="color: #8bc34a;">🖱️ 鼠标</h4>
+    <ul>
+      <li>点击植物栏选择植物</li>
+      <li>点击网格格子放置</li>
+      <li>点击阳光收集</li>
+    </ul>
+  </div>
+  <div style="background: #2d4a2d; border-radius: 8px; padding: 16px; color: #ccc; font-size: 13px;">
+    <h4 style="color: #8bc34a;">⌨️ 键盘快捷键</h4>
+    <ul>
+      <li><kbd>1</kbd>-<kbd>7</kbd> 快速选植物</li>
+      <li><kbd>Esc</kbd> 取消选择</li>
+      <li><kbd>Space</kbd> 收集全屏阳光</li>
+    </ul>
+  </div>
+</div>
+
+<h3>🔴 进攻方（僵尸）— 手柄</h3>
+<div style="background: #3d2d2d; border-radius: 8px; padding: 16px; color: #ccc; font-size: 13px;">
+  <h4 style="color: #ff6b6b;">🎮 手柄映射</h4>
+  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-top: 8px;">
+    <div>
+      <h5>选择僵尸</h5>
+      <ul>
+        <li><kbd>LB</kbd> / <kbd>RB</kbd> 切换种类</li>
+        <li>←/→ 方向键切换</li>
+      </ul>
+    </div>
+    <div>
+      <h5>选择行</h5>
+      <ul>
+        <li>↑/↓ 方向键选行</li>
+        <li>左摇杆上下</li>
+      </ul>
+    </div>
+    <div>
+      <h5>操作</h5>
+      <ul>
+        <li><kbd>A</kbd> 部署僵尸</li>
+        <li><kbd>X</kbd> 收集阳光</li>
+        <li><kbd>Start</kbd> 暂停</li>
+      </ul>
+    </div>
+  </div>
+  <p style="color: #aaa; font-size: 12px; margin-top: 8px;">
+    当前选中行和僵尸种类在界面上高亮显示，方便进攻方看清状态
+  </p>
+</div>
+
+<h3 style="margin-top: 24px;">📱 操作分工总览</h3>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+  <div style="background: #1a1a2e; border-radius: 8px; padding: 16px;">
+    <h4 style="color: #8bc34a;">🌱 防守方</h4>
+    <p style="color: #ccc; font-size: 13px;">鼠标点击精准种植物 → 适合需要精确定位的操作</p>
+  </div>
+  <div style="background: #1a1a2e; border-radius: 8px; padding: 16px;">
+    <h4 style="color: #ff6b6b;">🧟 进攻方</h4>
+    <p style="color: #ccc; font-size: 13px;">手柄快速切换部署僵尸 → 适合快速反应的派兵操作</p>
+  </div>
+</div>
+
+<h3 style="margin-top: 24px;">⚠️ 技术要求</h3>
+<div style="background: #1a1a2e; border-radius: 8px; padding: 12px; color: #ccc; font-size: 13px;">
+  <p>使用 <strong>Gamepad API</strong>（浏览器原生支持）</p>
+  <p>支持 Xbox、PS、Switch Pro 等主流手柄</p>
+  <p>手柄连接后浏览器自动识别，无需安装驱动</p>
+</div>
