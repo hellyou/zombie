@@ -94,7 +94,7 @@ const Network = {
         RNG = createRNG(msg.seed);
         if (this.callbacks.onGameStart) {
           this.callbacks.onGameStart({
-            role: msg.defender === 'host' ? 'defender' : 'attacker',
+            role: msg.role,
             duration: msg.duration,
             seed: msg.seed,
           });

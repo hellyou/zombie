@@ -149,14 +149,20 @@ wss.on('connection', (ws) => {
         const room = rooms.get(ws.roomId);
         if (!room || ws !== room.host) return;
 
-        const gameConfig = {
+        send(room.host, {
           type: 'game_start',
           seed: room.seed,
           duration: 180,
-          defender: room.hostRole === 'defender' ? 'host' : 'guest',
-        };
-
-        broadcastRoom(room, gameConfig);
+          role: room.hostRole,
+        });
+        if (room.guest) {
+          send(room.guest, {
+            type: 'game_start',
+            seed: room.seed,
+            duration: 180,
+            role: room.hostRole === 'defender' ? 'attacker' : 'defender',
+          });
+        }
         console.log(`Game started in room ${room.id}`);
         break;
       }

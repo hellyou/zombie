@@ -130,16 +130,26 @@ const Game = {
   },
 };
 
-function gameLoop(timestamp) {
-  if (!Game._lastTime) Game._lastTime = timestamp;
-  const dt = Math.min((timestamp - Game._lastTime) / 1000, 0.05); // cap dt
-  Game._lastTime = timestamp;
+// Logic loop — uses setInterval so it keeps running even when tab is in background
+let _logicInterval = null;
 
-  Game.update(dt);
-  render();
-
-  requestAnimationFrame(gameLoop);
+function startLogicLoop() {
+  if (_logicInterval) clearInterval(_logicInterval);
+  let lastTime = Date.now();
+  _logicInterval = setInterval(() => {
+    const now = Date.now();
+    const dt = Math.min((now - lastTime) / 1000, 1.0);
+    lastTime = now;
+    Game.update(dt);
+  }, 50); // 20 updates/sec
 }
 
-// Start game loop on page load
-requestAnimationFrame(gameLoop);
+// Render loop — uses requestAnimationFrame for smooth 60fps drawing
+function renderLoop() {
+  render();
+  requestAnimationFrame(renderLoop);
+}
+
+// Start game loops on page load
+startLogicLoop();
+requestAnimationFrame(renderLoop);
