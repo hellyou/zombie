@@ -17,18 +17,18 @@ const INITIAL_SUN_ATTACKER = 100;
 const SUN_DROP_AMOUNT = 25;
 const SUN_KILL_REWARD = 25;
 
-// Plants stats: [cost, cooldown, hp, damage, attackSpeed, special]
+// Plants stats: { cost, cd, hp, damage, attackSpeed, ...special }
 const PLANT_STATS = {
   sunflower:    { cost: 50,  cd: 5,  hp: 100, damage: 0,  attackSpeed: 0,  label: '向日葵', emoji: '🌻' },
   peashooter:   { cost: 100, cd: 5,  hp: 100, damage: 20, attackSpeed: 1.5, label: '豌豆射手', emoji: '🌱' },
   wallnut:      { cost: 50,  cd: 10, hp: 1000, damage: 0, attackSpeed: 0,  label: '坚果墙', emoji: '🥜' },
-  snowpea:      { cost: 175, cd: 5,  hp: 100, damage: 20, attackSpeed: 1.5, label: '寒冰射手', emoji: '❄️', slow: 0.5 },
+  snowpea:      { cost: 175, cd: 5,  hp: 100, damage: 20, attackSpeed: 1.5, label: '寒冰射手', emoji: '❄️', slowMultiplier: 0.5 },
   potatomine:   { cost: 25,  cd: 15, hp: 100, damage: 500, attackSpeed: 0,  label: '土豆雷', emoji: '💣', armTime: 15 },
   cherrybomb:   { cost: 150, cd: 30, hp: 0,   damage: 800, attackSpeed: 0,  label: '樱桃炸弹', emoji: '🍒', radius: 1 },
   repeater:     { cost: 200, cd: 5,  hp: 100, damage: 20, attackSpeed: 1.5, label: '双发射手', emoji: '🔫', multishot: 2 },
 };
 
-// Zombies stats: [cost, cooldown, hp, damage, speed, special]
+// Zombies stats: { cost, cd, hp, damage, speed, ...special }
 const ZOMBIE_STATS = {
   normal:     { cost: 50,  cd: 5,  hp: 100, damage: 40, speed: 0.5, label: '普通僵尸', emoji: '🧟' },
   cone:       { cost: 100, cd: 7,  hp: 200, damage: 40, speed: 0.5, label: '路障僵尸', emoji: '🪖' },
