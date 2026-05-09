@@ -1,9 +1,9 @@
 function createPlant(type, row, col) {
   const stats = PLANT_STATS[type];
   const plant = {
-    type: type,
-    row: row,
-    col: col,
+    type,
+    row,
+    col,
     hp: stats.hp,
     attackTimer: 0,
     cooldownTimer: 0,  // for potato mine arm time
