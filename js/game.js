@@ -21,7 +21,7 @@ const Game = {
 
   selectedPlant: null,  // defender's currently selected plant type
   selectedZombie: null, // attacker's currently selected zombie type
-  selectedRow: 2,       // attacker's currently selected row (0-indexed)
+  selectedRow: Math.floor(GRID_ROWS / 2), // middle row (2 for 5 rows)
 
   init() {
     this.grid = Array.from({length: GRID_ROWS}, () => Array(GRID_COLS).fill(null));
