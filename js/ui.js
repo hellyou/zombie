@@ -57,25 +57,31 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   Network.on('onPlayerJoined', (role) => {
-    // Room owner: player joined, show start button
-    if (role === 'attacker') {
-      // Host: show start game option
+    if (role === 'defender') {
+      // Host: opponent joined, show start button
       document.getElementById('waiting-screen').classList.add('hidden');
       document.getElementById('room-screen').classList.remove('hidden');
       document.getElementById('room-status').textContent = '对手已加入！点击开始对战';
       document.getElementById('room-status').style.color = '#4CAF50';
-      // Replace room actions with start game
       document.getElementById('create-room-btn').textContent = '🎮 开始对战';
       document.getElementById('create-room-btn').onclick = startOnlineGame;
       document.getElementById('join-room-btn').style.display = 'none';
       document.getElementById('room-code-input').style.display = 'none';
+    } else {
+      // Guest: waiting for host to start
+      document.getElementById('room-screen').classList.add('hidden');
+      document.getElementById('waiting-screen').classList.remove('hidden');
+      document.getElementById('room-code-display').textContent = '已加入';
+      document.getElementById('cancel-room-btn').textContent = '等待房主开始...';
+      document.getElementById('cancel-room-btn').disabled = true;
+      document.getElementById('waiting-screen').querySelector('.waiting-hint').textContent = '已加入房间，等待房主开始游戏';
     }
   });
 
   Network.on('onGameStart', (config) => {
+    Game.startGame();
     Game.onlineMode = true;
     Game.role = config.role;
-    Game.startGame();
     document.getElementById('room-screen').classList.add('hidden');
     document.getElementById('waiting-screen').classList.add('hidden');
     document.getElementById('game-screen').classList.remove('hidden');

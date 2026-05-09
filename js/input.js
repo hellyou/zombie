@@ -1,4 +1,4 @@
-// Mouse input for defender
+// Mouse input
 canvas.addEventListener('click', (e) => {
   if (Game.state !== 'playing') return;
 
@@ -12,6 +12,17 @@ canvas.addEventListener('click', (e) => {
 
   if (row < 0 || row >= GRID_ROWS || col < 0 || col >= GRID_COLS) return;
 
+  // Online mode: role-based click
+  if (Game.onlineMode) {
+    if (Game.role === 'defender' && Game.selectedPlant) {
+      Game.placePlant(row, col, Game.selectedPlant);
+    } else if (Game.role === 'attacker' && Game.selectedZombie) {
+      Game.spawnZombie(Game.selectedZombie, row);
+    }
+    return;
+  }
+
+  // Local mode: defender places plant
   if (Game.selectedPlant) {
     Game.placePlant(row, col, Game.selectedPlant);
   }
