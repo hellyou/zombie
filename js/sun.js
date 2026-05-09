@@ -6,7 +6,7 @@ function createSun(x, y, owner) {
   return {
     x: x,
     y: y,
-    targetY: y + 80 + Math.random() * 60,
+    targetY: y + 80 + RNG() * 60,
     owner: owner, // 'defender' | 'attacker' | 'shared'
     lifetime: SUN_LIFETIME,
     falling: true,
@@ -22,7 +22,7 @@ function updateSunSystem(dt) {
     sunDropTimer = 0;
     // Drop 2 suns at random positions
     for (let i = 0; i < 2; i++) {
-      const x = 50 + Math.random() * (CANVAS_WIDTH - 100);
+      const x = 50 + RNG() * (CANVAS_WIDTH - 100);
       const y = -30;
       // Determine owner by x position
       let owner;

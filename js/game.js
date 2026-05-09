@@ -23,6 +23,9 @@ const Game = {
   selectedZombie: null, // attacker's currently selected zombie type
   selectedRow: Math.floor(GRID_ROWS / 2), // middle row (2 for 5 rows)
 
+  onlineMode: false,
+  role: null, // 'defender' | 'attacker' (only in online mode)
+
   init() {
     this.grid = Array.from({length: GRID_ROWS}, () => Array(GRID_COLS).fill(null));
     this.plants = [];
@@ -36,6 +39,8 @@ const Game = {
     this.selectedPlant = null;
     this.selectedZombie = null;
     this.selectedRow = 2;
+    this.onlineMode = false;
+    this.role = null;
     this.state = 'menu';
   },
 
@@ -83,6 +88,10 @@ const Game = {
     const plant = createPlant(plantType, row, col);
     this.grid[row][col] = plant;
     this.plants.push(plant);
+    // Send action to opponent in online mode
+    if (this.onlineMode && this.role === 'defender') {
+      Network.sendAction({ type: 'plant', row, col, plantType });
+    }
     return true;
   },
 
@@ -93,7 +102,31 @@ const Game = {
     this.attackerSun -= stats.cost;
     const zombie = createZombie(zombieType, row);
     this.zombies.push(zombie);
+    // Send action to opponent in online mode
+    if (this.onlineMode && this.role === 'attacker') {
+      Network.sendAction({ type: 'zombie', row, zombieType });
+    }
     return true;
+  },
+
+  // Apply action received from opponent
+  applyOpponentAction(action) {
+    if (this.state !== 'playing') return;
+    switch (action.type) {
+      case 'plant':
+        // Opponent (defender) placed a plant
+        this.defenderSun -= PLANT_STATS[action.plantType].cost;
+        const plant = createPlant(action.plantType, action.row, action.col);
+        this.grid[action.row][action.col] = plant;
+        this.plants.push(plant);
+        break;
+      case 'zombie':
+        // Opponent (attacker) spawned a zombie
+        this.attackerSun -= ZOMBIE_STATS[action.zombieType].cost;
+        const zombie = createZombie(action.zombieType, action.row);
+        this.zombies.push(zombie);
+        break;
+    }
   },
 };
 

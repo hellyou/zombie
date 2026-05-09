@@ -19,7 +19,7 @@ function createZombie(type, row) {
     rageMode: false,  // newspaper
     shieldHp: type === 'screendoor' ? 200 : 0,
     anim: {
-      walkPhase: Math.random() * Math.PI * 2,
+      walkPhase: RNG() * Math.PI * 2,
       bobY: 0,
       attackPhase: 0,
     },
