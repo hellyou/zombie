@@ -351,9 +351,6 @@ endGame = function(winner) {
 const _origUpdate = Game.update;
 Game.update = function(dt) {
   _origUpdate.call(this, dt);
-  if (this.state === 'preparing') {
-    drawPrepOverlay(this.time);
-  }
   updateHUD();
   updateCooldowns();
 };

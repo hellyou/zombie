@@ -26,6 +26,11 @@ function render() {
   if (Game.state === 'playing') {
     drawRowIndicator();
   }
+
+  // Draw prep countdown overlay (on top of everything)
+  if (Game.state === 'preparing') {
+    drawPrepOverlay(Game.time);
+  }
 }
 
 function drawGrid() {
