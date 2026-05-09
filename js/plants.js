@@ -6,6 +6,7 @@ function createPlant(type, row, col) {
     col,
     hp: stats.hp,
     attackTimer: 0,
+    sunTimer: 0,
     cooldownTimer: 0,  // for potato mine arm time
     armed: type !== 'potatomine', // potato mine needs to arm
   };
@@ -37,6 +38,16 @@ function updatePlants(dt) {
       explodeCherryBomb(plant);
       Game.grid[plant.row][plant.col] = null;
       Game.plants.splice(i, 1);
+      continue;
+    }
+
+    // Sunflower produces sun
+    if (plant.type === 'sunflower') {
+      plant.sunTimer += dt;
+      if (plant.sunTimer >= SUNFLOWER_INTERVAL) {
+        plant.sunTimer = 0;
+        produceSunflowerSun(plant);
+      }
       continue;
     }
 
