@@ -127,13 +127,37 @@ function drawRowIndicator() {
 }
 
 function drawPrepOverlay(timeLeft) {
-  ctx.fillStyle = 'rgba(0,0,0,0.5)';
+  const num = Math.ceil(timeLeft);
+  const frac = num - timeLeft; // 1 = just changed, 0 = about to change
+  const scale = 0.8 + frac * 0.4; // pulse from 0.8 to 1.2
+
+  ctx.fillStyle = 'rgba(0,0,0,0.6)';
   ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+
+  // Glow circle
+  const cx = CANVAS_WIDTH / 2;
+  const cy = CANVAS_HEIGHT / 2;
+  const glow = ctx.createRadialGradient(cx, cy, 20 * scale, cx, cy, 80 * scale);
+  glow.addColorStop(0, 'rgba(255,255,255,0.2)');
+  glow.addColorStop(1, 'rgba(255,255,255,0)');
+  ctx.fillStyle = glow;
+  ctx.beginPath();
+  ctx.arc(cx, cy, 80 * scale, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Countdown number
+  ctx.save();
+  ctx.translate(cx, cy);
+  ctx.scale(scale, scale);
   ctx.fillStyle = '#fff';
-  ctx.font = '64px sans-serif';
+  ctx.font = 'bold 72px sans-serif';
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
-  ctx.fillText(Math.ceil(timeLeft), CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
-  ctx.font = '24px sans-serif';
-  ctx.fillText('准备阶段', CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2 + 60);
+  ctx.fillText(num, 0, 0);
+  ctx.restore();
+
+  // Caption
+  ctx.fillStyle = 'rgba(255,255,255,0.7)';
+  ctx.font = '20px sans-serif';
+  ctx.fillText('准备阶段', cx, cy + 55);
 }
