@@ -18,6 +18,11 @@ function createZombie(type, row) {
     jumped: false,    // pole vaulter
     rageMode: false,  // newspaper
     shieldHp: type === 'screendoor' ? 200 : 0,
+    anim: {
+      walkPhase: Math.random() * Math.PI * 2,
+      bobY: 0,
+      attackPhase: 0,
+    },
   };
   return zombie;
 }
@@ -50,6 +55,7 @@ function updateZombies(dt) {
         z.targetPlant = plant;
       }
       z.attackTimer += dt;
+      z.anim.attackPhase = z.attackTimer / ZOMBIE_ATTACK_SPEED;
       if (z.attackTimer >= ZOMBIE_ATTACK_SPEED) {
         z.attackTimer = 0;
         // Pole vaulter: jump over first plant
@@ -71,6 +77,9 @@ function updateZombies(dt) {
         speed = ZOMBIE_STATS.newspaper.rageSpeed * CELL_SIZE;
       }
       z.x -= speed * dt;
+      // Walk bob animation
+      z.anim.walkPhase += dt * 5;
+      z.anim.bobY = Math.sin(z.anim.walkPhase) * 3;
 
       // Trigger potato mine
       const mineCol = Math.floor(z.x / CELL_SIZE);

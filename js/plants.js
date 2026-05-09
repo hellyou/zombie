@@ -9,6 +9,9 @@ function createPlant(type, row, col) {
     sunTimer: 0,
     cooldownTimer: 0,  // for potato mine arm time
     armed: type !== 'potatomine', // potato mine needs to arm
+    anim: {
+      shootAnim: 0,
+    },
   };
   return plant;
 }
@@ -51,6 +54,9 @@ function updatePlants(dt) {
       continue;
     }
 
+    // Shoot animation decay
+    if (plant.anim.shootAnim > 0) plant.anim.shootAnim -= dt;
+
     // Shooting plants
     if (statsHasAttack(plant.type)) {
       plant.attackTimer += dt;
@@ -70,6 +76,7 @@ function updatePlants(dt) {
               plant.row, isSlow
             ));
           }
+          plant.anim.shootAnim = 0.3;
         }
       }
     }

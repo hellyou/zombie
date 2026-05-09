@@ -58,11 +58,8 @@ function drawPlant(plant) {
   const y = plant.row * CELL_SIZE + CELL_SIZE / 2;
   const stats = PLANT_STATS[plant.type];
 
-  // Draw emoji
-  ctx.font = '36px serif';
-  ctx.textAlign = 'center';
-  ctx.textBaseline = 'middle';
-  ctx.fillText(stats.emoji, x, y);
+  // Draw sprite
+  drawPlantSprite(ctx, plant.type, x, y, CELL_SIZE * 0.75, plant.anim);
 
   // HP bar
   const barWidth = 50;
@@ -81,10 +78,9 @@ function drawZombie(zombie) {
   const y = zombie.row * CELL_SIZE + CELL_SIZE / 2;
   const stats = ZOMBIE_STATS[zombie.type];
 
-  ctx.font = '32px serif';
-  ctx.textAlign = 'center';
-  ctx.textBaseline = 'middle';
-  ctx.fillText(stats.emoji, x, y);
+  // Draw sprite with walk bob animation
+  const spriteY = y + (zombie.anim?.bobY || 0);
+  drawZombieSprite(ctx, zombie.type, x, spriteY, CELL_SIZE * 0.75, zombie.anim);
 
   // HP bar
   const barWidth = 50;
